@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  background-image: url(emoji/left.png), url(emoji/right.png);
+  background-position: 0, 100%;
+  background-repeat: repeat-y;
+  background-size: 40%;
+  background-color: #f9f7ff;
+  /* height: 100vh; */
+}
+
+header {
+  height: 70px;
+  background-color: #00073e;
+}
+
+h1 {
+  font-weight: 500;
+  line-height: 70px;
+  text-align: center;
+  color: #fafafa;
+}
+
+.btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn a {
+  text-decoration: none;
+  background-color: #fea827;
+  color: #fafafa;
+  font-size: 1.5em;
+  padding: 10px 40px;
+  border-radius: 10px;
+}
+
+.btn_score_mobile {
+  display: none;
+}
+
+h2 {
+  font-weight: 500;
+  text-align: center;
+  margin: 20px;
+}
+
+#podium {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  bottom: 0;
+}
+
+.number {
+  width: 100px;
+  height: 70vh;
+  margin: 0 30px;
+  background: #00073e;
+}
+
+.number div {
+  margin: -20px 0;
+  text-align: center;
+}
+
+.one {
+  background: #ffe361;
+}
+
+.two {
+  height: 55vh;
+}
+
+.three {
+  height: 40vh;
+}
+
+.four {
+  height: 20vh;
+}
+
+.five {
+  height: 5vh;
+}
+
+.hidden_screen {
+  display: none;
+}
+
+#timer {
+  margin: 10px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 2em;
+}
+
+#container {
+  display: grid;
+  height: 500px;
+  width: 500px;
+  grid-template: repeat(6, 1fr) / repeat(6, 1fr);
+  margin: auto;
+}
+
+.grid-item {
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  background-color: #00073e !important;
+  background-image: url(emoji/cherry.png) !important;
+  background-position: center !important;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
+  transform: rotateY(0deg);
+  transition: 0.4s linear;
+}
+
+.grid-item--click {
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
+  transform: rotateY(180deg);
+  transition: 0.4s linear;
+  pointer-events: none;
+}
+
+.grid-item--found {
+  background: none !important;
+  pointer-events: none;
+}
+
+.grid-item--block {
+  pointer-events: none;
+}
+
+p {
+  text-align: center;
+}
