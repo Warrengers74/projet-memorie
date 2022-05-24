@@ -20,26 +20,29 @@
     </header>
 
     <main>
+      <span id="responsive">Passez en mode paysage pour une meilleure expérience.</span>
       <section id="first_screen">
         <div class="btn btn_jouer"><a href="#">JOUER</a></div>
         <h2>TOP 5 :</h2>
         <div id="podium">
-          <div class="number one">
-            <div>00m00s</div>
-          </div>
-          <div class="number two">
-            <div>00m00s</div>
-          </div>
-          <div class="number three">
-            <div>00m00s</div>
-          </div>
-          <div class="number four">
-            <div>00m00s</div>
-          </div>
-          <div class="number five">
-            <div>00m00s</div>
-          </div>
-        </div>
+          <?php
+          require_once 'connect.php';
+
+          $req = $db->query("SELECT `timer` FROM `score` ORDER BY `timer` ASC LIMIT 5");
+
+          foreach ($req as $value) {
+            $minutes = (int)(intval($value["timer"]) / 60);
+            $secondes = (int)(intval($value["timer"] % 60));
+            $minutes = $minutes < 10 ? "0" . $minutes : $minutes;
+            $secondes = $secondes < 10 ? "0" . $secondes : $secondes;
+            ?>
+            <div class="number">
+              <div><?= $minutes ?>m<?= $secondes ?>s</div>
+            </div>
+          <?php
+          }
+          ?>
+         
       </section>
       <section id="game" class= "hidden_screen">
         <div id="timer_mobile">
@@ -60,6 +63,6 @@
         <div class="btn btn_score"><a href="#">SCORE</a></div>
       </section>
     </main>
-    <script src="index.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

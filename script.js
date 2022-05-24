@@ -122,8 +122,10 @@ function stopTimer() {
 
 // fonction pour afficher l'écran gagné avec le score obtenu une fois toutes les paires trouvées et arrêter le timer.
 function win() {
-  if (counterMatch === 1) {
-    setInterval(() => {
+  
+  if (counterMatch === 18) {
+    
+    // setInterval(() => {
       stopTimer();
       let tempsRestant = temps;
       let tempsWin = departMinutes * 60 - tempsRestant;
@@ -131,11 +133,19 @@ function win() {
       let secondes = parseInt(tempsWin % 60, 10);
       minutes = minutes < 10 ? "0" + minutes : minutes;
       secondes = secondes < 10 ? "0" + secondes : secondes;
+      console.log(minutes, secondes, tempsRestant);
       document.getElementById("result").innerHTML = `${minutes}m${secondes}s`;
       const win = document.getElementById("win_screen");
       win.classList.remove("hidden_screen");
       game.classList.add("hidden_screen");
-    }, 500);
+
+      let score = new FormData()
+      score.append('score', tempsWin)
+      fetch("./score.php", {
+      method: "POST",
+      body: score, 
+      });
+    // }, 500);
   }
 }
 
