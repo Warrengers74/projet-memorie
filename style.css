@@ -11,7 +11,6 @@ body {
   background-repeat: repeat-y;
   background-size: 40%;
   background-color: #f9f7ff;
-  /* height: 100vh; */
 }
 
 header {
@@ -38,6 +37,12 @@ h1 {
   font-size: 1.5em;
   padding: 10px 40px;
   border-radius: 10px;
+  transition: 0.5s;
+}
+
+.btn a:hover {
+  background-color: #ffe361;
+  transition: 0.5s;
 }
 
 .btn_score_mobile {

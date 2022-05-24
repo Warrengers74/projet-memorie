@@ -124,8 +124,6 @@ function stopTimer() {
 function win() {
   
   if (counterMatch === 18) {
-    
-    // setInterval(() => {
       stopTimer();
       let tempsRestant = temps;
       let tempsWin = departMinutes * 60 - tempsRestant;
@@ -145,7 +143,6 @@ function win() {
       method: "POST",
       body: score, 
       });
-    // }, 500);
   }
 }
 
